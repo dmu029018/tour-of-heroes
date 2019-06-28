@@ -1,0 +1,23 @@
+<h2>Heroes</h2>
+<article class="hero" *ngFor="let h of heroes">
+    <dl>
+        <dt>ID:</dt>
+        <dd>{{ h.id }}</dd>
+        <dt>Name:</dt>
+        <dd>{{ h.name | capitalize | smartTruncate:5 }}</dd>
+    </dl>
+</article>
+
+<h2>New hero</h2>
+
+<article class="hero">
+  <dl>
+      <dt>ID:</dt>
+      <dd>{{ hero.id }}</dd>
+      <dt>Name:</dt>
+      <dd>{{ hero.name | capitalize }}</dd>
+  </dl>
+</article>
+<div>
+  <label>Name: </label><input [(ngModel)]="hero.name" placeholder="name"/>
+</div>
