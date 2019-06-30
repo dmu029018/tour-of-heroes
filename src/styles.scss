@@ -1,1 +1,97 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Russo+One&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+body {
+  font-family: "Russo One", sans-serif;
+  background: rgba(51,68,170,1);
+  color: #fff;
+}
+
+#header {
+  background: rgb(0,0,0) linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(51,68,170,1) 100%);
+  padding: 2em;
+}
+
+h1, h2 {
+  color: yellow;
+  text-shadow: 2px 2px 0px #000, 2px -2px 2px #aaa;
+  font-variant: small-caps;
+  letter-spacing: 0.15em;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+}
+
+
+h2 {
+  font-size: 2.5em;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.btn {
+  background: #ccc;
+  font-family: "Russo One", sans-serif;
+  padding: 0.5em;
+  font-size: 1em;
+  border: 3px outset #666;
+  border-radius: 10px;
+  opacity: 0.85;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000, -1px -1px 1px #aaa;
+  font-variant: small-caps;
+  letter-spacing: 0.15em;
+  transition: ease 0.4s opacity;
+}
+.btn:hover {
+  opacity: 1;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-close {
+  background: red;
+  border-radius: 0;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.float-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(51,68,170,0.4);
+}
+
+.h-flex {
+  display: flex;
+  flex-direction: row;
+
+}

@@ -1,23 +1,91 @@
-<h2>Heroes</h2>
-<article class="hero" *ngFor="let h of heroes">
-    <dl>
-        <dt>ID:</dt>
-        <dd>{{ h.id }}</dd>
-        <dt>Name:</dt>
-        <dd>{{ h.name | capitalize | smartTruncate:5 }}</dd>
-    </dl>
-</article>
+<header>
+  <h2>Heroes</h2>
+  <div class="btn-group">
+    <button (click)="toggleExpandedList()" class="btn">{{ expandedList ? 'Hide Heroes' : 'Show Heroes' }}</button>
+    <button (click)="toggleHeroCreator()" class="btn">Create hero</button>
+  </div>
+</header>
+<section class="hero-list" *ngIf="expandedList">
+  <article class="hero" *ngFor="let h of heroes" (click)="onSelectHero(h.id)">
+    <figure>
+      <img [src]="h.avatar"/>
+    </figure>
+    <section class="summary">
+      <h3>#{{ h.id }} - {{ h.name | capitalize }}</h3>
+      <blockquote class="quote">{{ h.quote }}</blockquote>
+      <!--<dd>{{ h.name | capitalize | smartTruncate:5 }}</dd>-->
+    </section>
+    <table class="attributes">
+        <tr class="attribute">
+          <td class="right">Vitality</td>
+          <td>
+              <span class="attribute-point" *ngFor="let i of [].constructor(h.attributes.vitality)"></span>
+          </td>
+        </tr>
+        <tr class="attribute">
+          <td class="right">Strength</td>
+          <td>
+            <span class="attribute-point" *ngFor="let i of [].constructor(h.attributes.strength)"></span>
+          </td>
+        </tr>
+        <tr class="attribute">
+          <td class="right">Agiility</td>
+          <td>
+            <span class="attribute-point"  *ngFor="let i of [].constructor(h.attributes.agility)"></span>
+          </td>
+        </tr>
+        <tr class="attribute">
+          <td class="right">Intellect</td>
+          <td>
+            <span class="attribute-point"  *ngFor="let i of [].constructor(h.attributes.intellect)"></span>
+          </td>
+        </tr>
+      </table>
+  </article>
+</section>
 
-<h2>New hero</h2>
+<!--CREATE HERO VIEW -->
+<div class="float-box" id="hero-creator" *ngIf="heroCreatorVisible">
 
-<article class="hero">
-  <dl>
-      <dt>ID:</dt>
-      <dd>{{ hero.id }}</dd>
-      <dt>Name:</dt>
-      <dd>{{ hero.name | capitalize }}</dd>
-  </dl>
-</article>
-<div>
-  <label>Name: </label><input [(ngModel)]="hero.name" placeholder="name"/>
+  <div class="h-flex">
+    <h2>Create new hero</h2>
+    <button class="btn btn-close" (click)="toggleHeroCreator()">x</button>
+  </div>
+  <article class="hero">
+    <figure>
+      <img [src]="newHero.avatar"/>
+    </figure>
+    <section class="summary">
+      <h3>#{{ newHero.id }} - {{ newHero.name | capitalize }}</h3>
+      <blockquote class="quote">{{ newHero.quote }}</blockquote>
+    </section>
+    <table class="attributes">
+        <tr class="attribute">
+          <td class="right">Vitality</td>
+          <td>
+              <span class="attribute-point" *ngFor="let i of [].constructor(newHero.attributes.vitality)"></span>
+          </td>
+        </tr>
+        <tr class="attribute">
+          <td class="right">Strength</td>
+          <td>
+            <span class="attribute-point" *ngFor="let i of [].constructor(newHero.attributes.strength)"></span>
+          </td>
+        </tr>
+        <tr class="attribute">
+          <td class="right">Agiility</td>
+          <td>
+            <span class="attribute-point"  *ngFor="let i of [].constructor(newHero.attributes.agility)"></span>
+          </td>
+        </tr>
+        <tr class="attribute">
+          <td class="right">Intellect</td>
+          <td>
+            <span class="attribute-point"  *ngFor="let i of [].constructor(newHero.attributes.intellect)"></span>
+          </td>
+        </tr>
+      </table>
+
+
+    </article>
 </div>
